@@ -1,0 +1,114 @@
+.page {
+  min-height: 80dvh;
+}
+
+.pageHero {
+  background: var(--color-maroon);
+  padding-block: var(--space-12);
+  text-align: center;
+  border-bottom: 2px solid var(--color-gold);
+}
+
+.pageTitle {
+  font-family: var(--font-cinzel);
+  font-size: clamp(1.6rem, 5vw, 2.8rem);
+  font-weight: 700;
+  color: var(--color-bright-gold);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: var(--space-4);
+}
+
+:lang(te) .pageTitle {
+  font-family: var(--font-ponnala);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.contentSection {
+  padding-block: var(--space-16);
+  background: var(--color-cream);
+}
+
+.contentInner {
+  max-width: 780px;
+  margin-inline: auto;
+}
+
+.heading {
+  font-family: var(--font-cinzel);
+  font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+  font-weight: 700;
+  color: var(--color-maroon);
+  letter-spacing: 0.04em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+:lang(te) .heading {
+  font-family: var(--font-ponnala);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.bodyText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.para {
+  font-family: var(--font-cormorant);
+  font-size: 1.15rem;
+  color: var(--color-brown-dark);
+  line-height: 1.8;
+}
+
+:lang(te) .para {
+  font-family: var(--font-mallanna);
+  font-size: 1.15rem;
+}
+
+.historyBlock {
+  margin-top: var(--space-10);
+  padding: var(--space-6) var(--space-8);
+  background: var(--color-sand);
+  border-left: 4px solid var(--color-gold);
+  border-radius: var(--radius-md);
+}
+
+.historyText {
+  font-family: var(--font-cormorant);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--color-brown-mid);
+  line-height: 1.8;
+}
+
+:lang(te) .historyText {
+  font-family: var(--font-mallanna);
+  font-style: normal;
+  font-size: 1.1rem;
+}
+
+.historyFooter {
+  margin-top: var(--space-3);
+  font-family: var(--font-cinzel);
+  font-size: 0.8rem;
+  color: var(--color-gold);
+  letter-spacing: 0.06em;
+}
+
+:lang(te) .historyFooter {
+  font-family: var(--font-mallanna);
+  letter-spacing: 0;
+  font-size: 0.9rem;
+}
+
+.loading {
+  font-family: var(--font-cormorant);
+  font-size: 1.1rem;
+  color: var(--color-brown-mid);
+  text-align: center;
+  padding-block: var(--space-16);
+}

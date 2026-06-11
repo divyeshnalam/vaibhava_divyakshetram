@@ -1,0 +1,213 @@
+.page {
+  min-height: 80dvh;
+}
+
+.pageHero {
+  background: var(--color-maroon);
+  padding-block: var(--space-12);
+  text-align: center;
+  border-bottom: 2px solid var(--color-gold);
+}
+
+.pageTitle {
+  font-family: var(--font-cinzel);
+  font-size: clamp(1.6rem, 5vw, 2.8rem);
+  font-weight: 700;
+  color: var(--color-bright-gold);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: var(--space-4);
+}
+
+:lang(te) .pageTitle {
+  font-family: var(--font-ponnala);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.contactSection {
+  padding-block: var(--space-16);
+  background: var(--color-cream);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  max-width: 960px;
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.infoCard,
+.messageCard {
+  background: var(--color-sand);
+  border: 1px solid var(--color-border-gold);
+  border-radius: var(--radius-md);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-sm);
+}
+
+.cardHeading {
+  font-family: var(--font-cinzel);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-maroon);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+:lang(te) .cardHeading {
+  font-family: var(--font-ponnala);
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 1.1rem;
+}
+
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.infoLabel {
+  font-family: var(--font-cinzel);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-gold);
+}
+
+:lang(te) .infoLabel {
+  font-family: var(--font-mallanna);
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.85rem;
+}
+
+.infoValue {
+  font-family: var(--font-cormorant);
+  font-size: 1rem;
+  color: var(--color-brown-dark);
+  line-height: 1.6;
+}
+
+:lang(te) .infoValue {
+  font-family: var(--font-mallanna);
+  font-size: 1.05rem;
+}
+
+.link {
+  color: var(--color-deep-red);
+  transition: color var(--transition-fast);
+}
+
+.link:hover {
+  color: var(--color-maroon);
+}
+
+.messageNote {
+  font-family: var(--font-cormorant);
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--color-brown-mid);
+  line-height: 1.75;
+  text-align: center;
+}
+
+:lang(te) .messageNote {
+  font-family: var(--font-mallanna);
+  font-style: normal;
+  font-size: 1.05rem;
+}
+
+.ctaRow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+@media (min-width: 480px) {
+  .ctaRow {
+    flex-direction: row;
+  }
+}
+
+.ctaPhone,
+.ctaEmail {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding-block: var(--space-3);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-cinzel);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: background var(--transition-base), color var(--transition-base),
+    transform var(--transition-base);
+  min-height: 48px;
+  text-decoration: none;
+}
+
+.ctaPhone {
+  background: var(--color-maroon);
+  color: var(--color-bright-gold);
+  border: 2px solid var(--color-maroon);
+}
+
+.ctaPhone:hover {
+  background: var(--color-deep-red);
+  transform: translateY(-2px);
+}
+
+.ctaEmail {
+  background: transparent;
+  color: var(--color-maroon);
+  border: 2px solid var(--color-maroon);
+}
+
+.ctaEmail:hover {
+  background: rgba(107, 0, 0, 0.06);
+  transform: translateY(-2px);
+}
+
+:lang(te) .ctaPhone,
+:lang(te) .ctaEmail {
+  font-family: var(--font-mallanna);
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 1rem;
+}
+
+.loading {
+  font-family: var(--font-cormorant);
+  font-size: 1.1rem;
+  color: var(--color-brown-mid);
+  text-align: center;
+  padding-block: var(--space-16);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ctaPhone:hover,
+  .ctaEmail:hover {
+    transform: none;
+  }
+}

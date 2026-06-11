@@ -1,0 +1,59 @@
+:root {
+  /* Primary Colors */
+  --color-maroon: #6b0000;
+  --color-deep-red: #8b0000;
+  --color-gold: #d4af37;
+  --color-bright-gold: #ffd700;
+
+  /* Backgrounds */
+  --color-cream: #fff8e7;
+  --color-sand: #f7ebc5;
+  --color-sand-deep: #eedfa8;
+
+  /* Text */
+  --color-brown-dark: #3a0d00;
+  --color-brown-mid: #5c1a00;
+  --color-brown-light: #7a3000;
+
+  /* Borders & Dividers */
+  --color-border-gold: rgba(212, 175, 55, 0.4);
+  --color-border-maroon: rgba(107, 0, 0, 0.2);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(58, 13, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(58, 13, 0, 0.12);
+  --shadow-lg: 0 8px 28px rgba(58, 13, 0, 0.18);
+  --shadow-gold: 0 2px 16px rgba(212, 175, 55, 0.22);
+
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  /* Transition */
+  --transition-fast: 150ms ease;
+  --transition-base: 300ms ease;
+  --transition-slow: 600ms ease;
+  --transition-very-slow: 1200ms ease;
+
+  /* Z-index */
+  --z-nav: 100;
+  --z-banner: 90;
+  --z-overlay: 200;
+  --z-modal: 300;
+}

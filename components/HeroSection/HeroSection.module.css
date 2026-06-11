@@ -1,0 +1,180 @@
+/* ═══════════════════════════════════════════════════════
+   HERO — full-bleed image carousel
+═══════════════════════════════════════════════════════ */
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 88dvh;
+  min-height: 480px;
+  overflow: hidden;
+  background-color: #1a0000;
+}
+
+/* ── Slide track ───────────────────────────────────── */
+.slideTrack {
+  position: absolute;
+  inset: 0;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  will-change: opacity, transform;
+}
+
+.slideHidden {
+  opacity: 0;
+  transform: scale(1);
+}
+
+/* Ken-Burns zoom while visible */
+.slideActive {
+  opacity: 1;
+  animation: kenBurns 6s ease-out forwards;
+  transition: opacity 0.9s ease;
+}
+
+@keyframes kenBurns {
+  from { transform: scale(1);    }
+  to   { transform: scale(1.06); }
+}
+
+/* Outgoing: freeze zoom position, fade out */
+.slideOut {
+  opacity: 0;
+  transform: scale(1.06);
+  transition: opacity 0.9s ease;
+}
+
+/* ── Vignette ──────────────────────────────────────── */
+.vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top,    rgba(10, 0, 0, 0.55) 0%,  transparent 28%),
+    linear-gradient(to bottom, rgba(10, 0, 0, 0.25) 0%,  transparent 20%),
+    radial-gradient(ellipse at center, transparent 40%, rgba(10, 0, 0, 0.32) 100%);
+  pointer-events: none;
+}
+
+/* ── Maroon fallback (error / no slides) ───────────── */
+.bgFallback {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center,
+    #5a0000 0%, #1a0000 100%);
+}
+
+/* ── Dots ──────────────────────────────────────────── */
+.dots {
+  position: absolute;
+  bottom: clamp(1.25rem, 3.5vw, 2rem);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(212, 175, 55, 0.65);
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.dot:hover {
+  background: rgba(212, 175, 55, 0.4);
+  border-color: #D4AF37;
+}
+
+.dotActive {
+  background: var(--color-gold, #D4AF37);
+  border-color: var(--color-gold, #D4AF37);
+  transform: scale(1.35);
+}
+
+.dot:focus-visible {
+  outline: 2px solid var(--color-gold, #D4AF37);
+  outline-offset: 3px;
+}
+
+/* ── Audio button ──────────────────────────────────── */
+.audioBtn {
+  position: absolute;
+  bottom: clamp(1.25rem, 3.5vw, 2rem);
+  right: clamp(1.25rem, 3.5vw, 2rem);
+  z-index: 10;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(20, 0, 0, 0.72);
+  border: 1.5px solid rgba(212, 175, 55, 0.5);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
+}
+
+.audioBtn:hover {
+  background: rgba(20, 0, 0, 0.92);
+  border-color: rgba(212, 175, 55, 0.9);
+  transform: scale(1.1);
+}
+
+.audioBtn:focus-visible {
+  outline: 2px solid var(--color-gold, #D4AF37);
+  outline-offset: 3px;
+}
+
+.audioBtn svg {
+  width: 17px;
+  height: 17px;
+  stroke: var(--color-gold, #D4AF37);
+}
+
+/* ── Loading pulse ─────────────────────────────────── */
+.loadingPulse {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #1a0000 0%, #3a0000 50%, #1a0000 100%);
+  background-size: 200% 100%;
+  animation: shimmerLoad 1.6s ease infinite;
+}
+
+@keyframes shimmerLoad {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+/* ── Responsive ────────────────────────────────────── */
+@media (max-width: 768px) {
+  .hero { height: 65dvh; min-height: 380px; }
+}
+
+@media (max-width: 480px) {
+  .hero { height: 56dvh; min-height: 320px; }
+
+  .audioBtn { width: 38px; height: 38px; bottom: 1rem; right: 1rem; }
+  .dot { width: 7px; height: 7px; }
+}
+
+/* ── Reduced motion ────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .slideActive  { animation: none; transform: scale(1); transition: opacity 0.4s ease; }
+  .slideOut     { transform: scale(1); }
+  .audioBtn:hover { transform: none; }
+  .loadingPulse { animation: none; }
+}

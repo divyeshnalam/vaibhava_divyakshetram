@@ -1,0 +1,112 @@
+.banner {
+  background: var(--color-cream, #fdf8f0);
+  border-bottom: 2px solid var(--color-gold, #d4af37);
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  overflow: hidden;
+}
+
+/* ── Left label ─────────────────────────────────────────── */
+.label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-inline: var(--space-4);
+  flex-shrink: 0;
+  color: var(--color-bright-gold);
+  white-space: nowrap;
+}
+
+.label span {
+  font-family: var(--font-cinzel);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-bright-gold);
+}
+
+:lang(te) .label span {
+  font-family: var(--font-ponnala);
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.88rem;
+}
+
+/* ── Vertical divider ───────────────────────────────────── */
+.divider {
+  width: 1px;
+  height: 20px;
+  background: rgba(139, 90, 43, 0.3);
+  flex-shrink: 0;
+}
+
+/* ── Ticker wrapper ─────────────────────────────────────── */
+.tickerWrap {
+  flex: 1;
+  overflow: hidden;
+  padding-inline: var(--space-4);
+  min-width: 0;
+}
+
+.ticker {
+  display: flex;
+  width: max-content;
+  animation: marquee var(--duration, 20s) linear infinite;
+}
+
+.ticker.paused {
+  animation-play-state: paused;
+}
+
+.tickerInner {
+  font-family: var(--font-cormorant);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-deep-red, #6b1a1a);
+  white-space: nowrap;
+  padding-right: var(--space-12, 3rem);
+}
+
+:lang(te) .tickerInner {
+  font-family: var(--font-mallanna);
+  font-size: 1rem;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── View All button ────────────────────────────────────── */
+.viewAll {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 0 var(--space-4);
+  height: 100%;
+  min-height: 44px;
+  background: var(--color-maroon);
+  color: var(--color-sand);
+  text-decoration: none;
+  font-family: var(--font-cinzel);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background var(--transition-fast);
+}
+
+.viewAll:hover {
+  background: var(--color-deep-red);
+}
+
+:lang(te) .viewAll {
+  font-family: var(--font-ponnala);
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.88rem;
+}

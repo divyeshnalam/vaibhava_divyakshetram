@@ -1,0 +1,87 @@
+.page {
+  min-height: 80dvh;
+}
+
+.pageHero {
+  background: var(--color-maroon);
+  padding-block: var(--space-12);
+  text-align: center;
+  border-bottom: 2px solid var(--color-gold);
+}
+
+.pageTitle {
+  font-family: var(--font-cinzel);
+  font-size: clamp(1.6rem, 5vw, 2.8rem);
+  font-weight: 700;
+  color: var(--color-bright-gold);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: var(--space-4);
+}
+
+:lang(te) .pageTitle {
+  font-family: var(--font-ponnala);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.pageSubtitle {
+  font-family: var(--font-cormorant);
+  font-size: 1.05rem;
+  font-style: italic;
+  color: rgba(247, 235, 197, 0.85);
+  margin-top: var(--space-3);
+}
+
+:lang(te) .pageSubtitle {
+  font-family: var(--font-mallanna);
+  font-style: normal;
+}
+
+.servicesSection {
+  padding-block: var(--space-16);
+  background: var(--color-cream);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+@media (min-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.skeleton {
+  height: 200px;
+  background: var(--color-sand);
+  border-radius: var(--radius-md);
+  animation: skeletonPulse 1.4s ease infinite;
+}
+
+@keyframes skeletonPulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton {
+    animation: none;
+  }
+}

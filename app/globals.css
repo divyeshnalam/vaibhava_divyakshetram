@@ -1,26 +1,143 @@
-@import "tailwindcss";
+@import "../styles/tokens.css";
+@import "../styles/breakpoints.css";
+@import "../styles/typography.css";
+@import "../styles/animations.css";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-telugu-heading: var(--font-ponnala), var(--font-mallanna), var(--font-noto-serif-telugu), sans-serif;
+  --font-telugu-body: var(--font-mallanna), var(--font-noto-serif-telugu), sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html {
+  scroll-behavior: smooth;
+  /* -webkit-text-size-adjust: 100%; */
+  font-size: 16px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-cream);
+  color: var(--color-brown-dark);
+  font-family: var(--font-cormorant);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100dvh;
+}
+
+/* Focus visible for accessibility */
+:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* Selection */
+::selection {
+  background: rgba(212, 175, 55, 0.3);
+  color: var(--color-brown-dark);
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-deep-red);
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-sand);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: var(--radius-full);
+}
+
+/* Skip to content */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-4);
+  z-index: 9999;
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-maroon);
+  color: var(--color-bright-gold);
+  font-family: var(--font-cinzel);
+  font-size: 0.875rem;
+  border-radius: var(--radius-sm);
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: var(--space-4);
+}
+
+/* Utility: visually hidden (a11y) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Telugu normal content text */
+[lang="te"] {
+  font-family: var(--font-telugu-body);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+/* Telugu heading helper */
+.teluguHeading,
+h1[lang="te"],
+h2[lang="te"],
+h3[lang="te"],
+h4[lang="te"],
+h5[lang="te"],
+h6[lang="te"] {
+  font-family: var(--font-telugu-heading) !important;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+/* Telugu body/content helper */
+.teluguText {
+  font-family: var(--font-telugu-body) !important;
+  font-weight: 400;
+  letter-spacing: 0;
 }

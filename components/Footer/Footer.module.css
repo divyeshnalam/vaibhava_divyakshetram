@@ -1,0 +1,240 @@
+/* ─── Footer shell ─────────────────────────────────────── */
+.footer {
+  background: var(--color-maroon);
+  color: var(--color-sand);
+  padding-top: var(--space-8);
+}
+
+/* ─── Nav grid ─────────────────────────────────────────── */
+.navGrid {
+  display: grid;
+  /* mobile: 2 columns so it's readable but compact */
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-8) var(--space-6);
+  padding-bottom: var(--space-10);
+}
+
+@media (min-width: 640px) {
+  .navGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  /* desktop: all 6 columns in one row, matching image 1 */
+  .navGrid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--space-6);
+  }
+}
+
+.navCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.colHeading {
+  font-family: var(--font-cinzel);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-bright-gold);
+  margin: 0 0 var(--space-1);
+  white-space: nowrap;
+}
+
+:lang(te) .colHeading {
+  font-family: var(--font-ponnala);
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.9rem;
+  white-space: normal;
+}
+
+.linkList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+}
+
+.footerLink {
+  font-family: var(--font-cormorant);
+  font-size: 0.92rem;
+  color: rgba(247, 235, 197, 0.75);
+  transition: color var(--transition-fast);
+  display: inline-block;
+  line-height: 1.4;
+}
+
+.footerLink:hover {
+  color: var(--color-bright-gold);
+}
+
+:lang(te) .footerLink {
+  font-family: var(--font-mallanna);
+  font-size: 0.95rem;
+}
+
+/* ─── Contact row ──────────────────────────────────────── */
+.contactRow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding-block: var(--space-6);
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+@media (min-width: 768px) {
+  .contactRow {
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: var(--space-6) var(--space-10);
+  }
+}
+
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.contactIcon {
+  font-size: 1rem;
+  line-height: 1.5;
+  flex-shrink: 0;
+}
+
+.address {
+  font-style: normal;
+  font-family: var(--font-cormorant);
+  font-size: 0.9rem;
+  color: rgba(247, 235, 197, 0.75);
+  line-height: 1.6;
+  max-width: 32ch;
+}
+
+:lang(te) .address {
+  font-family: var(--font-mallanna);
+  font-size: 0.95rem;
+}
+
+.contactLinks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.contactLink {
+  font-family: var(--font-cormorant);
+  font-size: 0.9rem;
+  color: rgba(247, 235, 197, 0.75);
+  transition: color var(--transition-fast);
+  line-height: 1.5;
+}
+
+.contactLink:hover {
+  color: var(--color-bright-gold);
+}
+
+:lang(te) .contactLink {
+  font-family: var(--font-mallanna);
+}
+
+/* ─── Bottom bar ───────────────────────────────────────── */
+.bottom {
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
+  padding-block: var(--space-4);
+}
+
+.bottomInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  /* desktop: social | copyright | legal in one row */
+  .bottomInner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    gap: var(--space-4);
+  }
+}
+
+.socialLinks {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.socialLink {
+  color: rgba(247, 235, 197, 0.6);
+  transition: color var(--transition-fast);
+  display: flex;
+  align-items: center;
+}
+
+.socialLink:hover {
+  color: var(--color-bright-gold);
+}
+
+.copyright {
+  font-family: var(--font-cormorant);
+  font-size: 0.82rem;
+  color: rgba(247, 235, 197, 0.45);
+  line-height: 1.5;
+  /* on mobile it's centered via parent; on desktop flex handles alignment */
+}
+
+:lang(te) .copyright {
+  font-family: var(--font-mallanna);
+  font-size: 0.88rem;
+}
+
+.legalLinks {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.legalLink {
+  font-family: var(--font-cormorant);
+  font-size: 0.82rem;
+  color: rgba(247, 235, 197, 0.5);
+  transition: color var(--transition-fast);
+}
+
+.legalLink:hover {
+  color: var(--color-gold);
+}
+
+:lang(te) .legalLink {
+  font-family: var(--font-mallanna);
+}
+
+.legalSep {
+  color: rgba(212, 175, 55, 0.3);
+  font-size: 0.75rem;
+}
+
+/* ─── Hide nav grid on mobile ──────────────────────────── */
+.desktopOnly {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .desktopOnly {
+    display: grid;
+  }
+}

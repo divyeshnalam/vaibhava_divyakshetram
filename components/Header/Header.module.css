@@ -1,0 +1,596 @@
+/* ═══════════════════════════════════════════════════════
+   HEADER — Temple Venkateswara
+   Professional, responsive. No icons. logo.jpg used.
+═══════════════════════════════════════════════════════ */
+
+/* ── Outer shell ───────────────────────────────────────── */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-nav);
+  background: var(--color-maroon);
+  border-top: 2px solid var(--color-gold);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+  transition: box-shadow var(--transition-base);
+}
+
+.headerScrolled {
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.45);
+  border-bottom-color: rgba(212, 175, 55, 0.5);
+}
+
+/* ── Shared logo image ─────────────────────────────────── */
+.logoImg {
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* ════════════════════════════════════════
+   MOBILE BAR  (<768px)
+════════════════════════════════════════ */
+.mobileBar {
+  display: grid;
+  grid-template-columns: 56px 1fr 60px;
+  align-items: center;
+  min-height: 74px;
+  padding-inline: var(--space-3);
+  gap: var(--space-2);
+}
+
+/* Hide mobile navbar on tablet/desktop */
+@media (min-width: 768px) {
+  .mobileBar {
+    display: none;
+  }
+}
+
+/* Logo image sizes per breakpoint */
+.mobileLogo .logoImg {
+  width: 66px;
+  height: 66px;
+}
+
+.mobileLogoText {
+  font-family: var(--font-cinzel);
+  font-size: clamp(0.82rem, 2.8vw, 1.05rem);
+  font-weight: 900;
+  color: var(--color-bright-gold);
+  letter-spacing: 0.045em;
+  line-height: 1.28;
+  text-align: center;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+}
+
+.mobileLogoText:lang(te) {
+  font-family: var(--font-ponnala);
+  font-size: clamp(0.92rem, 3vw, 1.12rem);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.25;
+}
+
+/* Burger */
+.burgerBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  color: var(--color-bright-gold);
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+  flex-shrink: 0;
+}
+.burgerBtn:hover,
+.burgerBtn:focus-visible {
+  border-color: var(--color-gold);
+  background: rgba(212, 175, 55, 0.12);
+}
+.burgerBtn:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* Mobile logo → home */
+.mobileLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  text-decoration: none;
+  overflow: hidden;
+  padding-block: var(--space-1);
+}
+
+
+
+
+/* Mobile right slot */
+.mobileRight {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* ════════════════════════════════════════
+   DESKTOP BAR  (≥768px)
+════════════════════════════════════════ */
+.desktopBar {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .desktopBar {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    min-height: 88px;
+    padding-inline: var(--space-6);
+    gap: var(--space-5);
+    max-width: 1360px;
+    margin-inline: auto;
+    width: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .desktopBar {
+    min-height: 96px;
+    padding-inline: var(--space-8);
+    gap: var(--space-7);
+  }
+}
+
+.desktopLogo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.desktopLogo .logoImg {
+  width: 80px;
+  height: 80px;
+}
+
+@media (min-width: 1024px) {
+  .desktopLogo .logoImg {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+.desktopLogoText {
+  font-family: var(--font-cinzel);
+  font-size: clamp(1rem, 1.35vw, 1.3rem);
+  font-weight: 900;
+  color: var(--color-bright-gold);
+  letter-spacing: 0.045em;
+  line-height: 1.25;
+  max-width: 340px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 1024px) {
+  .desktopLogoText {
+    max-width: 420px;
+  }
+}
+
+.desktopLogoText:lang(te) {
+  font-family: var(--font-ponnala);
+  font-size: clamp(1.12rem, 1.45vw, 1.45rem);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.22;
+  max-width: 390px;
+}
+
+@media (min-width: 1024px) {
+  .desktopLogoText:lang(te) {
+    max-width: 460px;
+  }
+}
+
+/* Desktop nav */
+.desktopNav {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.desktopNavList {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.desktopNavItem { position: relative; }
+
+.desktopNavLink {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: var(--space-2) var(--space-2);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition: color var(--transition-fast);
+  white-space: nowrap;
+}
+
+@media (min-width: 900px) {
+  .desktopNavLink { padding: var(--space-2) var(--space-3); }
+}
+
+.desktopNavLink:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+.desktopNavLabel {
+  font-family: var(--font-cinzel);
+  font-size: clamp(0.82rem, 0.95vw, 1rem);
+  font-weight: 800;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+  color: rgba(247, 235, 197, 0.96);
+  transition: color var(--transition-fast);
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+@media (min-width: 1024px) {
+  .desktopNavLabel {
+    font-size: clamp(0.9rem, 1vw, 1.08rem);
+    letter-spacing: 0.07em;
+  }
+}
+
+.desktopNavLabel:lang(te) {
+  font-family: var(--font-mallanna);
+  font-size: clamp(1.02rem, 1.15vw, 1.18rem);
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 800;
+}
+
+/* Active: gold pill */
+.desktopNavLink.desktopNavLinkActive .desktopNavLabel {
+  color: var(--color-bright-gold);
+  font-weight: 800;
+}
+
+.activePill {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-sm);
+  background: rgba(212, 175, 55, 0.13);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Hover: animated gold underline */
+.goldUnderline {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-bright-gold), transparent);
+  border-radius: var(--radius-full);
+  transform: translateX(-50%);
+  transition: width 260ms ease;
+  pointer-events: none;
+}
+
+.desktopNavLink:hover .goldUnderline,
+.desktopNavLink:focus-visible .goldUnderline {
+  width: calc(100% - 12px);
+}
+
+.desktopNavLink:hover .desktopNavLabel {
+  color: var(--color-bright-gold);
+}
+
+.desktopNavLink.desktopNavLinkActive .goldUnderline { display: none; }
+
+/* Desktop right */
+.desktopRight {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
+
+/* ════════════════════════════════════════
+   BACKDROP
+════════════════════════════════════════ */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--z-nav) + 5);
+  background: rgba(10, 0, 0, 0.65);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 300ms ease;
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+
+.backdropVisible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ════════════════════════════════════════
+   DRAWER
+════════════════════════════════════════ */
+.drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 82vw;
+  max-width: 300px;
+  z-index: calc(var(--z-nav) + 10);
+  background: var(--color-maroon);
+  border-right: 2px solid var(--color-gold);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transform: translateX(-100%);
+  visibility: hidden;
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1), visibility 0s 300ms;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-gold) transparent;
+}
+
+.drawer::-webkit-scrollbar { width: 3px; }
+.drawer::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: var(--radius-full);
+}
+
+.drawerOpen {
+  transform: translateX(0);
+  visibility: visible;
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1), visibility 0s 0s;
+}
+
+@media (min-width: 768px) {
+  .drawer   { display: none !important; }
+  .backdrop { display: none !important; }
+}
+
+/* Drawer Header */
+.drawerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.22);
+  flex-shrink: 0;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+/* Drawer brand is now a link to home */
+.drawerBrand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  text-decoration: none;
+  flex: 1;
+  overflow: hidden;
+}
+
+.drawerLogoImg {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.drawerBrandName {
+  font-family: var(--font-cinzel);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--color-bright-gold);
+  letter-spacing: 0.05em;
+  line-height: 1.35;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+:lang(te) .drawerBrandName {
+  font-family: var(--font-ponnala);
+  letter-spacing: 0;
+  font-size: 0.8rem;
+}
+
+.drawerClose {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  color: var(--color-sand);
+  transition: border-color var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+  flex-shrink: 0;
+  margin-left: var(--space-2);
+}
+
+.drawerClose:hover,
+.drawerClose:focus-visible {
+  border-color: var(--color-gold);
+  color: var(--color-bright-gold);
+  background: rgba(212, 175, 55, 0.1);
+}
+
+.drawerClose:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* Drawer ornamental divider */
+.drawerDivider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding-inline: var(--space-4);
+  padding-block: var(--space-3);
+  flex-shrink: 0;
+}
+
+.drawerDividerLine {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.45), transparent);
+}
+
+.drawerDividerSymbol {
+  font-size: 0.6rem;
+  color: var(--color-gold);
+  letter-spacing: 0.15em;
+  white-space: nowrap;
+  opacity: 0.8;
+}
+
+/* Drawer nav list */
+.drawerList {
+  list-style: none;
+  padding: var(--space-2) var(--space-3);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Each drawer link */
+.drawerLink {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 14px var(--space-4);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  border: 1px solid transparent;
+  position: relative;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+  min-height: 60px;
+}
+
+.drawerLink:hover,
+.drawerLink:focus-visible {
+  background: rgba(212, 175, 55, 0.08);
+  border-color: rgba(212, 175, 55, 0.2);
+}
+
+.drawerLink:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+.drawerLinkActive {
+  background: rgba(212, 175, 55, 0.12);
+  border-color: rgba(212, 175, 55, 0.36);
+}
+
+/* Labels (bilingual stacked) */
+.drawerLinkLabels {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+}
+
+.drawerLinkLabel {
+  font-family: var(--font-cinzel);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.055em;
+  color: var(--color-sand);
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.drawerLinkLabel:lang(te) {
+  font-family: var(--font-mallanna);
+  font-size: 1.12rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.35;
+}
+
+.drawerLinkActive .drawerLinkLabel {
+  color: var(--color-bright-gold);
+}
+
+
+/* Active dot */
+.drawerActiveDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-bright-gold);
+  flex-shrink: 0;
+  box-shadow: 0 0 7px rgba(255, 215, 0, 0.55);
+}
+
+/* Drawer footer */
+.drawerFooter {
+  padding: var(--space-4) var(--space-5);
+  border-top: 1px solid rgba(212, 175, 55, 0.16);
+  flex-shrink: 0;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.drawerFooterText {
+  font-family: var(--font-cormorant);
+  font-size: 0.88rem;
+  font-style: italic;
+  color: rgba(212, 175, 55, 0.5);
+  display: block;
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
+:lang(te) .drawerFooterText {
+  font-family: var(--font-mallanna);
+  font-style: normal;
+  font-size: 0.92rem;
+}
+
+/* ════════════════════════════════════════
+   REDUCED MOTION
+════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  .drawer   { transition: transform 0ms, visibility 0ms; }
+  .backdrop { transition: opacity 0ms; }
+  .goldUnderline { transition: none; }
+}

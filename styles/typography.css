@@ -1,0 +1,101 @@
+
+
+:root {
+  --font-cinzel: "Cinzel", serif;
+  --font-cormorant: "Cormorant Garamond", serif;
+  --font-mallanna: "Mallanna", sans-serif;
+  --font-ponnala: "Ponnala", sans-serif;
+}
+
+/* English Typography */
+:lang(en) h1,
+:lang(en) h2,
+:lang(en) h3,
+:lang(en) h4,
+:lang(en) h5,
+:lang(en) h6 {
+  font-family: var(--font-cinzel);
+}
+
+:lang(en) p,
+:lang(en) li,
+:lang(en) span,
+:lang(en) a,
+:lang(en) label,
+:lang(en) button {
+  font-family: var(--font-cormorant);
+}
+
+/* Telugu Typography */
+:lang(te) h1,
+:lang(te) h2,
+:lang(te) h3,
+:lang(te) h4,
+:lang(te) h5,
+:lang(te) h6 {
+  font-family: var(--font-ponnala);
+}
+
+:lang(te) p,
+:lang(te) li,
+:lang(te) span,
+:lang(te) a,
+:lang(te) label,
+:lang(te) button {
+  font-family: var(--font-mallanna);
+}
+
+/* Type Scale */
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+.text-base {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 1.3;
+}
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 1.2;
+}
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1.1;
+}
+
+/* Telugu font size boost for readability */
+:lang(te) .text-base {
+  font-size: 1.05rem;
+}
+:lang(te) .text-lg {
+  font-size: 1.2rem;
+}
+:lang(te) .text-xl {
+  font-size: 1.35rem;
+}
+:lang(te) .text-2xl {
+  font-size: 1.65rem;
+}
+:lang(te) .text-3xl {
+  font-size: 2rem;
+}

@@ -1,0 +1,183 @@
+.page {
+  min-height: 80dvh;
+}
+
+.pageHero {
+  background: var(--color-maroon);
+  padding-block: var(--space-12);
+  text-align: center;
+  border-bottom: 2px solid var(--color-gold);
+}
+
+.pageTitle {
+  font-family: var(--font-cinzel);
+  font-size: clamp(1.6rem, 5vw, 2.8rem);
+  font-weight: 700;
+  color: var(--color-bright-gold);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: var(--space-4);
+}
+
+:lang(te) .pageTitle {
+  font-family: var(--font-ponnala);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.pageSubtitle {
+  font-family: var(--font-cormorant);
+  font-size: 1.05rem;
+  font-style: italic;
+  color: rgba(247, 235, 197, 0.85);
+  margin-top: var(--space-3);
+}
+
+:lang(te) .pageSubtitle {
+  font-family: var(--font-mallanna);
+  font-style: normal;
+}
+
+.donationSection {
+  padding-block: var(--space-16);
+  background: var(--color-cream);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  margin-top: var(--space-8);
+}
+
+@media (min-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.card {
+  background: var(--color-sand);
+  border: 1px solid var(--color-border-gold);
+  border-radius: var(--radius-md);
+  padding: var(--space-8) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-4);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.cardAmount {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-1);
+}
+
+.currency {
+  font-family: var(--font-cinzel);
+  font-size: 1.25rem;
+  color: var(--color-gold);
+  font-weight: 700;
+}
+
+.amountNum {
+  font-family: var(--font-cinzel);
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--color-maroon);
+  line-height: 1;
+}
+
+.tierName {
+  font-family: var(--font-cinzel);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-maroon);
+  letter-spacing: 0.04em;
+}
+
+:lang(te) .tierName {
+  font-family: var(--font-ponnala);
+  letter-spacing: 0;
+}
+
+.tierDesc {
+  font-family: var(--font-cormorant);
+  font-size: 0.95rem;
+  color: var(--color-brown-mid);
+  line-height: 1.65;
+  flex: 1;
+}
+
+:lang(te) .tierDesc {
+  font-family: var(--font-mallanna);
+  font-size: 1rem;
+}
+
+.donateBtn {
+  width: 100%;
+  padding-block: var(--space-3);
+  background: var(--color-maroon);
+  color: var(--color-bright-gold);
+  font-family: var(--font-cinzel);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 2px solid var(--color-maroon);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--transition-base), color var(--transition-base),
+    border-color var(--transition-base);
+  min-height: 48px;
+}
+
+.donateBtn:hover {
+  background: var(--color-deep-red);
+  border-color: var(--color-gold);
+}
+
+:lang(te) .donateBtn {
+  font-family: var(--font-mallanna);
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 1rem;
+}
+
+.skeleton {
+  height: 280px;
+  background: var(--color-sand-deep);
+  border-radius: var(--radius-md);
+}
+
+.note {
+  margin-top: var(--space-12);
+  padding: var(--space-5) var(--space-6);
+  background: var(--color-sand);
+  border: 1px solid var(--color-border-gold);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.note p {
+  font-family: var(--font-cormorant);
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--color-brown-mid);
+  line-height: 1.7;
+}
+
+:lang(te) .note p {
+  font-family: var(--font-mallanna);
+  font-style: normal;
+  font-size: 1rem;
+}
