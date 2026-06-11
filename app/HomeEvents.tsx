@@ -11,7 +11,7 @@ import type { ServiceItem } from "@/types";
 import styles from "./page.module.css";
 
 export function HomeServices() {
-  const { t } = useLanguageContext();
+  const { t, language } = useLanguageContext();
   const fetcher = useCallback(() => fetchServices(), []);
   const { data, loading } = useApi<ServiceItem[]>(fetcher);
 
