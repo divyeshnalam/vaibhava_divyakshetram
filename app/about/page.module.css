@@ -3,13 +3,40 @@
 }
 
 .pageHero {
-  background: var(--color-maroon);
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top, rgba(212, 160, 23, 0.2), transparent 42%),
+    linear-gradient(135deg, var(--color-maroon), var(--color-brown-dark));
   padding-block: var(--space-12);
   text-align: center;
   border-bottom: 2px solid var(--color-gold);
 }
 
+.pageHero::before,
+.pageHero::after {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border: 1px solid rgba(212, 160, 23, 0.22);
+  border-radius: var(--radius-full);
+  pointer-events: none;
+}
+
+.pageHero::before {
+  top: -90px;
+  left: -80px;
+}
+
+.pageHero::after {
+  right: -80px;
+  bottom: -110px;
+}
+
 .pageTitle {
+  position: relative;
+  z-index: 1;
   font-family: var(--font-cinzel);
   font-size: clamp(1.6rem, 5vw, 2.8rem);
   font-weight: 700;
@@ -19,96 +46,232 @@
   margin-top: var(--space-4);
 }
 
-:lang(te) .pageTitle {
-  font-family: var(--font-ponnala);
-  text-transform: none;
-  letter-spacing: 0;
-}
-
 .contentSection {
   padding-block: var(--space-16);
-  background: var(--color-cream);
+  background:
+    radial-gradient(circle at top left, rgba(212, 160, 23, 0.08), transparent 34%),
+    var(--color-cream);
 }
 
 .contentInner {
-  max-width: 780px;
+  max-width: 960px;
   margin-inline: auto;
+}
+
+.introCard {
+  padding: var(--space-8);
+  background: var(--color-cream);
+  border: 1px solid var(--color-border-gold);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+}
+
+.eyebrow {
+  font-family: var(--font-cinzel);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-gold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-3);
 }
 
 .heading {
   font-family: var(--font-cinzel);
-  font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+  font-size: clamp(1.35rem, 3.5vw, 2rem);
   font-weight: 700;
   color: var(--color-maroon);
   letter-spacing: 0.04em;
-  text-align: center;
+  text-transform: uppercase;
+  line-height: 1.35;
+}
+
+.historyBlock {
+  margin-top: var(--space-6);
+  padding: var(--space-6);
+  background: var(--color-sand);
+  border-left: 4px solid var(--color-gold);
+  border-radius: var(--radius-md);
+  text-align: left;
+}
+
+.blockTitle {
+  font-family: var(--font-cinzel);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-maroon);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-3);
+}
+
+.historyText {
+  font-family: var(--font-cormorant);
+  font-size: 1.15rem;
+  color: var(--color-brown-mid);
+  line-height: 1.8;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .infoGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.infoCard {
+  padding: var(--space-6);
+  background: var(--color-sand);
+  border: 1px solid var(--color-border-gold);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.infoTitle {
+  font-family: var(--font-cinzel);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-maroon);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-3);
+}
+
+.infoText {
+  font-family: var(--font-cormorant);
+  font-size: 1.1rem;
+  color: var(--color-brown-dark);
+  line-height: 1.7;
+}
+
+.actionLink {
+  display: inline-flex;
+  align-items: center;
+  margin-top: var(--space-4);
+  font-family: var(--font-cinzel);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-maroon);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--color-gold);
+  padding-bottom: var(--space-1);
+}
+
+.actionLink:hover {
+  color: var(--color-deep-red);
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.contactLink {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3);
+  background: rgba(247, 235, 197, 0.6);
+  border: 1px solid rgba(212, 160, 23, 0.25);
+  border-radius: var(--radius-sm);
+  color: var(--color-brown-dark);
+  transition:
+    border-color var(--transition-base),
+    background-color var(--transition-base),
+    color var(--transition-base);
+}
+
+.contactLink:hover {
+  color: var(--color-maroon);
+  border-color: var(--color-gold);
+  background: rgba(247, 235, 197, 0.9);
+}
+
+.contactLabel {
+  font-family: var(--font-cinzel);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--color-gold);
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
-:lang(te) .heading {
-  font-family: var(--font-ponnala);
-  text-transform: none;
-  letter-spacing: 0;
+.slokasSection {
+  margin-top: var(--space-10);
 }
 
-.bodyText {
-  display: flex;
-  flex-direction: column;
+.sectionHeading {
+  font-family: var(--font-cinzel);
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  font-weight: 700;
+  color: var(--color-maroon);
+  text-align: center;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-6);
+}
+
+.slokasGrid {
+  display: grid;
+  grid-template-columns: 1fr;
   gap: var(--space-5);
 }
 
-.para {
+.slokaCard {
+  padding: var(--space-6);
+  background: var(--color-sand);
+  border: 1px solid var(--color-border-gold);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.slokaTitle {
+  font-family: var(--font-cinzel);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-maroon);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-3);
+}
+
+.slokaText {
   font-family: var(--font-cormorant);
   font-size: 1.15rem;
   color: var(--color-brown-dark);
   line-height: 1.8;
 }
 
-:lang(te) .para {
-  font-family: var(--font-mallanna);
-  font-size: 1.15rem;
-}
-
-.historyBlock {
-  margin-top: var(--space-10);
-  padding: var(--space-6) var(--space-8);
-  background: var(--color-sand);
-  border-left: 4px solid var(--color-gold);
-  border-radius: var(--radius-md);
-}
-
-.historyText {
+.slokaMeaning {
+  margin-top: var(--space-3);
   font-family: var(--font-cormorant);
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-style: italic;
   color: var(--color-brown-mid);
-  line-height: 1.8;
+  line-height: 1.7;
 }
 
-:lang(te) .historyText {
-  font-family: var(--font-mallanna);
-  font-style: normal;
-  font-size: 1.1rem;
-}
-
-.historyFooter {
-  margin-top: var(--space-3);
-  font-family: var(--font-cinzel);
-  font-size: 0.8rem;
-  color: var(--color-gold);
-  letter-spacing: 0.06em;
-}
-
-:lang(te) .historyFooter {
-  font-family: var(--font-mallanna);
-  letter-spacing: 0;
-  font-size: 0.9rem;
-}
-
-.loading {
-  font-family: var(--font-cormorant);
-  font-size: 1.1rem;
-  color: var(--color-brown-mid);
+.loading,
+.messageBox {
+  max-width: 640px;
+  margin-inline: auto;
+  padding: var(--space-6);
   text-align: center;
-  padding-block: var(--space-16);
+  font-family: var(--font-cormorant);
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--color-brown-mid);
+  background: var(--color-cream);
+  border: 1px solid var(--color-border-gold);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
 }

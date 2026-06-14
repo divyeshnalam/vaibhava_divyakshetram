@@ -4,50 +4,72 @@ import { useCallback } from "react";
 import Link from "next/link";
 import { useLanguageContext } from "@/contexts/LanguageContext";
 import { useApi } from "@/hooks/useApi";
-import { fetchServices } from "@/lib/api";
-import { ServiceCard } from "@/components/ServiceCard/ServiceCard";
+import { fetchEvents } from "@/lib/api";
+import { EventCard } from "@/components/EventCard/EventCard";
 import { DividerOrnament } from "@/components/DividerOrnament/DividerOrnament";
-import type { ServiceItem } from "@/types";
+import type { EventItem } from "@/types";
 import styles from "./page.module.css";
 
-export function HomeServices() {
+export function HomeEvents() {
   const { t, language } = useLanguageContext();
-  const fetcher = useCallback(() => fetchServices(), []);
-  const { data, loading } = useApi<ServiceItem[]>(fetcher);
+  const fetcher = useCallback(() => fetchEvents(), []);
+  const { data, loading, error } = useApi<EventItem[]>(fetcher);
+
+  const homeEvents = data?.slice(0, 2) ?? [];
 
   return (
-    <section className={styles.section} aria-labelledby="services-heading">
+    <section className={styles.section} aria-labelledby="events-heading">
       <div className="container">
         <DividerOrnament symbol="✦" />
+
         <div className={styles.sectionHeader}>
-          <h2 id="services-heading" className={styles.sectionTitle} lang={language}>
-            {t({ en: "Daily Sevas & Services", te: "నిత్య సేవలు" })}
+          <h2
+            id="events-heading"
+            className={styles.sectionTitle}
+            lang={language}
+          >
+            {t({ en: "Festivals & Events", te: "ఉత్సవాలు" })}
           </h2>
+
           <p className={styles.sectionSubtitle} lang={language}>
             {t({
-              en: "Participate in our sacred daily rituals and offerings to Lord Venkateswara",
-              te: "శ్రీ వేంకటేశ్వర స్వామి నిత్య సేవలలో పాల్గొనండి",
+              en: "Celebrate upcoming temple festivals, special pujas, and divine events with us",
+              te: "రాబోయే ఆలయ ఉత్సవాలు, ప్రత్యేక పూజలు మరియు దైవ కార్యక్రమాలలో మాతో పాల్గొనండి",
             })}
           </p>
         </div>
 
         {loading ? (
           <div className={styles.skeletonGrid}>
-            {Array.from({ length: 6 }).map((_, i) => (
+            {Array.from({ length: 2 }).map((_, i) => (
               <div key={i} className={styles.skeleton} />
             ))}
           </div>
-        ) : (
+        ) : error ? (
+          <div className={styles.messageBox}>
+            {t({
+              en: "Unable to load events right now. Please try again later.",
+              te: "ప్రస్తుతం ఉత్సవాలను లోడ్ చేయలేకపోతున్నాము. దయచేసి తర్వాత ప్రయత్నించండి.",
+            })}
+          </div>
+        ) : homeEvents.length > 0 ? (
           <div className={styles.grid}>
-            {data?.map((service) => (
-              <ServiceCard key={service.id} service={service} />
+            {homeEvents.map((event) => (
+              <EventCard key={event.id} event={event} />
             ))}
+          </div>
+        ) : (
+          <div className={styles.messageBox}>
+            {t({
+              en: "No upcoming events are available at the moment.",
+              te: "ప్రస్తుతం రాబోయే ఉత్సవాలు అందుబాటులో లేవు.",
+            })}
           </div>
         )}
 
         <div className={styles.viewAll}>
-          <Link href="/services" className={styles.viewAllLink} lang={language}>
-            {t({ en: "View All Services →", te: "అన్ని సేవలు చూడండి →" })}
+          <Link href="/events" className={styles.viewAllLink} lang={language}>
+            {t({ en: "View All Events →", te: "అన్ని ఉత్సవాలు చూడండి →" })}
           </Link>
         </div>
       </div>

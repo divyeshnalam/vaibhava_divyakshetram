@@ -3,13 +3,40 @@
 }
 
 .pageHero {
-  background: var(--color-maroon);
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top, rgba(212, 160, 23, 0.2), transparent 42%),
+    linear-gradient(135deg, var(--color-maroon), var(--color-brown-dark));
   padding-block: var(--space-12);
   text-align: center;
   border-bottom: 2px solid var(--color-gold);
 }
 
+.pageHero::before,
+.pageHero::after {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border: 1px solid rgba(212, 160, 23, 0.22);
+  border-radius: var(--radius-full);
+  pointer-events: none;
+}
+
+.pageHero::before {
+  top: -90px;
+  left: -80px;
+}
+
+.pageHero::after {
+  right: -80px;
+  bottom: -110px;
+}
+
 .pageTitle {
+  position: relative;
+  z-index: 1;
   font-family: var(--font-cinzel);
   font-size: clamp(1.6rem, 5vw, 2.8rem);
   font-weight: 700;
@@ -19,44 +46,85 @@
   margin-top: var(--space-4);
 }
 
-:lang(te) .pageTitle {
-  font-family: var(--font-ponnala);
+/* Do not set Telugu font here. globals.css handles h1[lang="te"]. */
+.pageTitle[lang="te"] {
   text-transform: none;
-  letter-spacing: 0;
 }
 
 .pageSubtitle {
+  position: relative;
+  z-index: 1;
   font-family: var(--font-cormorant);
-  font-size: 1.05rem;
+  font-size: 1.08rem;
   font-style: italic;
-  color: rgba(247, 235, 197, 0.85);
+  color: rgba(247, 235, 197, 0.88);
   margin-top: var(--space-3);
+  max-width: 620px;
+  margin-inline: auto;
 }
 
-:lang(te) .pageSubtitle {
-  font-family: var(--font-mallanna);
+/* Do not set Telugu font here. globals.css handles [lang="te"]. */
+.pageSubtitle[lang="te"] {
   font-style: normal;
 }
 
 .eventsSection {
   padding-block: var(--space-16);
-  background: var(--color-sand);
+  background:
+    radial-gradient(circle at top left, rgba(212, 160, 23, 0.1), transparent 35%),
+    var(--color-sand);
 }
 
 .grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-5);
+  gap: var(--space-6);
 }
 
 @media (min-width: 768px) {
   .grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 .skeleton {
-  height: 200px;
-  background: var(--color-sand-deep);
+  min-height: 340px;
   border-radius: var(--radius-md);
+  background:
+    linear-gradient(
+      90deg,
+      var(--color-sand-deep) 0%,
+      rgba(247, 235, 197, 0.7) 50%,
+      var(--color-sand-deep) 100%
+    );
+  background-size: 200% 100%;
+  animation: shimmer 1.3s ease-in-out infinite;
+  border: 1px solid var(--color-border-gold);
+}
+
+.messageBox {
+  max-width: 640px;
+  margin-inline: auto;
+  padding: var(--space-6);
+  text-align: center;
+  font-family: var(--font-cormorant);
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--color-brown-mid);
+  background: var(--color-cream);
+  border: 1px solid var(--color-border-gold);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+/* No Telugu font override needed. globals.css handles [lang="te"]. */
+
+@keyframes shimmer {
+  0% {
+    background-position: 180% 0;
+  }
+
+  100% {
+    background-position: -180% 0;
+  }
 }

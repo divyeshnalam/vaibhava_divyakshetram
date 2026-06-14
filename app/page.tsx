@@ -2,6 +2,7 @@ import { AnnouncementBanner } from "@/components/AnnouncementBanner/Announcement
 import { HeroSection } from "@/components/HeroSection/HeroSection";
 import { HomeServices } from "./HomeServices";
 import { Gallery } from "@/components/Gallery/Gallery";
+import { HomeEvents } from "./HomeEvents";
 
 import type { Metadata } from "next";
 
@@ -16,7 +17,7 @@ export default function HomePage() {
       <AnnouncementBanner />
       <HomeServices />
       <Gallery />
-      {/* <HomeEvents /> */}
+      <HomeEvents />
     </>
   );
 }

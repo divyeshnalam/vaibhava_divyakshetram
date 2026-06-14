@@ -29,11 +29,18 @@ export interface ServiceItem {
 }
 
 export interface EventItem {
-  id: string;
-  title: TranslatedText;
-  date: TranslatedText;
-  description: TranslatedText;
-  tag: TranslatedText;
+  id: number;
+  title_en: string;
+  title_te: string;
+  description_en: string;
+  description_te: string;
+  significance_en: string;
+  significance_te: string;
+  image: string | null;
+  event_date: string;
+  event_time: string | null;
+  is_featured: boolean;
+  created_at: string;
 }
 
 export interface AnnouncementItem {
@@ -47,24 +54,33 @@ export interface AnnouncementItem {
   is_pinned: boolean;
 }
 
-export interface AboutData {
-  heading: TranslatedText;
-  body: TranslatedText[];
-  history: TranslatedText;
-}
-
-export interface DonationTier {
-  id: string;
-  name: TranslatedText;
-  amount: number;
-  description: TranslatedText;
-}
-
-export interface ContactInfo {
-  address: TranslatedText;
-  phone: string;
+export interface TempleInformation {
+  temple_name_en: string;
+  temple_name_te: string;
+  history_en: string;
+  history_te: string;
+  address_en: string;
+  address_te: string;
+  phone_number: string;
   email: string;
-  hours: TranslatedText;
+  google_maps_link: string;
+}
+
+export interface AboutSlokaItem {
+  id?: number;
+  title_en?: string;
+  title_te?: string;
+  text_en?: string;
+  text_te?: string;
+  meaning_en?: string;
+  meaning_te?: string;
+  display_order?: number;
+  [key: string]: string | number | boolean | null | undefined;
+}
+
+export interface AboutData {
+  temple_information: TempleInformation;
+  slokas: AboutSlokaItem[];
 }
 
 export interface ApiState<T> {
